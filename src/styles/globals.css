@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container-fotos {
+  @apply mx-5 my-5;
+}
+
+.organizar_fotos {
+  @apply grid justify-center items-center gap-5  grid-cols-[150px_150px];
+}
+
+.background-home {
+  @apply bg-back bg-no-repeat bg-center bg-fixed w-full h-screen;
+}
