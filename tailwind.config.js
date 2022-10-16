@@ -12,6 +12,9 @@ module.exports = {
         img5: "url(/img5.jpg)",
         img6: "url(/img6.jpg)",
       },
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+      },
     },
 
     plugins: [],

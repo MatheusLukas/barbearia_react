@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
+import Image from "next/image";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -25,24 +26,61 @@ export default function App() {
         }}
         modules={[Pagination, Autoplay]}
         className="mySwiper"
+        id="carousel"
       >
         <SwiperSlide>
-          <img className="h-[350px]  " src="/img1.jpg" />
+          <Image
+            width={225}
+            height={350}
+            className="rounded-lg"
+            src="/img1.jpg"
+            alt=""
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="h-[350px] " src="/img2.jpg" />
+          <Image
+            width={225}
+            height={350}
+            className="rounded-lg"
+            src="/img2.jpg"
+            alt=""
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="h-[350px] " src="/img3.jpg" />
+          <Image
+            width={225}
+            height={350}
+            className="rounded-lg"
+            src="/img3.jpg"
+            alt=""
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="h-[350px] " src="/img4.jpg" />
+          <Image
+            width={225}
+            height={350}
+            className="rounded-lg"
+            src="/img4.jpg"
+            alt=""
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="h-[350px] " src="/img5.jpg" />
+          <Image
+            width={225}
+            height={350}
+            className="rounded-lg"
+            src="/img5.jpg"
+            alt=""
+          />
         </SwiperSlide>
         <SwiperSlide>
-          <img className="h-[350px] " src="/img6.jpg" />
+          <Image
+            width={225}
+            height={350}
+            className="rounded-lg"
+            src="/img6.jpg"
+            alt=""
+          />
         </SwiperSlide>
       </Swiper>
     </>

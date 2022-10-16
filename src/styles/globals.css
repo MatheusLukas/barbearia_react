@@ -1,15 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap");
+@import url("react-calendar/dist/Calendar.css");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.container-fotos {
-  @apply mx-5 my-5;
-}
-
-.organizar_fotos {
-  @apply grid justify-center items-center gap-5  grid-cols-[150px_150px];
-}
-
 .background-home {
   @apply bg-back bg-no-repeat bg-center bg-fixed w-full h-screen bg-cover;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
 }

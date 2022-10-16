@@ -1,8 +1,12 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { ShowData } from "../components/ShowData";
+import Image from "next/image";
+import Calendar from "react-calendar";
 
 export default function MyModal() {
+  const [value, onChange] = useState(new Date());
+
   let [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
@@ -60,12 +64,14 @@ export default function MyModal() {
                     <ShowData />
                   </div>
 
-                  <div className="mt-4">{/* Cards da hora periodo */}</div>
+                  <div className="mt-4 flex justify-center">
+                    <Calendar onChange={onChange} value={value} />
+                  </div>
                   <button
                     onClick={closeModal}
-                    className="absolute top-1 right-1 hover:bg-red-400 rounded-xl"
+                    className="absolute top-1 right-1 hover:bg-red-400 rounded-xl flex items-center"
                   >
-                    <img src="/Close.svg" alt="" className="h-6" />
+                    <Image width={24} height={24} src="/Close.svg" alt="" />
                   </button>
                 </Dialog.Panel>
               </Transition.Child>

@@ -1,13 +1,20 @@
 import Navbar from "../components/Navbar";
 import Modal from "../components/Modal";
+import Image from "next/image";
 
 function Agendamento() {
   return (
     <div>
-      <div className="background-home">
+      <div className="background-home font-poppins">
         <Navbar />
-        <div className="flex flex-col justify-center items-center gap-10">
-          <img src="/Logo_agendamento.svg" className="w-[350px] mt-[110px]" />
+        <div className="flex flex-col justify-center items-center gap-10 mt-[110px]">
+          <Image
+            width={350}
+            height={285}
+            src="/Logo_agendamento.svg"
+            className=""
+            alt=""
+          />
           <Modal />
         </div>
       </div>
