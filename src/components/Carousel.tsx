@@ -25,14 +25,14 @@ export default function App() {
           clickable: true,
         }}
         modules={[Pagination, Autoplay]}
-        className="mySwiper"
+        className="mySwiper "
         id="carousel"
       >
         <SwiperSlide>
           <Image
             width={225}
             height={350}
-            className="rounded-lg"
+            className="rounded-none md:rounded-lg "
             src="/img1.jpg"
             alt=""
           />
@@ -41,7 +41,7 @@ export default function App() {
           <Image
             width={225}
             height={350}
-            className="rounded-lg"
+            className="rounded-none md:rounded-lg"
             src="/img2.jpg"
             alt=""
           />
@@ -50,7 +50,7 @@ export default function App() {
           <Image
             width={225}
             height={350}
-            className="rounded-lg"
+            className="rounded-none md:rounded-lg "
             src="/img3.jpg"
             alt=""
           />
@@ -59,7 +59,7 @@ export default function App() {
           <Image
             width={225}
             height={350}
-            className="rounded-lg"
+            className="rounded-none md:rounded-lg"
             src="/img4.jpg"
             alt=""
           />
@@ -68,7 +68,7 @@ export default function App() {
           <Image
             width={225}
             height={350}
-            className="rounded-lg"
+            className="rounded-none md:rounded-lg "
             src="/img5.jpg"
             alt=""
           />
@@ -77,7 +77,7 @@ export default function App() {
           <Image
             width={225}
             height={350}
-            className="rounded-lg"
+            className="rounded-none md:rounded-lg "
             src="/img6.jpg"
             alt=""
           />

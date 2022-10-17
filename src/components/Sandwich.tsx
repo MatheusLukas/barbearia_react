@@ -24,7 +24,7 @@ const Sandwich = () => {
       onClick={Menu}
       className="text-3x1 cursor-pointer mx-2 md:hidden block  h-5 w-5"
     >
-      <img className="menu" src={SandwichIcon} alt="" />
+      <img className="menu " src={SandwichIcon} alt="" />
     </div>
   );
 };

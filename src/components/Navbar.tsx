@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import Sandwich from "./Sandwich";
 import Image from "next/image";
+import Login from "./ModalLogin";
 
 const Navbar = () => {
   return (
@@ -33,6 +34,9 @@ const Navbar = () => {
             <Link href="/agendamento" className="text-x1 ">
               <a className="hover:opacity-60 duration-500">Agendar</a>
             </Link>
+          </li>
+          <li>
+            <Login />
           </li>
         </ul>
       </div>
