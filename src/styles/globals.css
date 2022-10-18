@@ -12,3 +12,11 @@ html,
 body {
   scroll-behavior: smooth;
 }
+
+body {
+  @apply font-poppins;
+}
+
+.btn_class {
+  @apply border-[3px] border-black rounded-[20px] w-full h-[45px] placeholder:text-black px-3 font-light;
+}

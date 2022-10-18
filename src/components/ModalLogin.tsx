@@ -1,8 +1,8 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
-import { ShowData } from "./ShowData";
+import Link from "next/link";
+
 import Image from "next/image";
-import Calendar from "react-calendar";
 
 export default function Login() {
   const [value, onChange] = useState(new Date());
@@ -60,32 +60,40 @@ export default function Login() {
                   >
                     Login
                   </Dialog.Title>
-                  <div className="mt-2 flex justify-center  flex-col font-bold gap-[20px] mt-[30px] ">
+                  <div className=" flex justify-center  flex-col font-bold gap-[20px] mt-[30px] ">
                     <div>
                       <h1 className="text-left">Email</h1>
-                      <input className="border-[3px] border-black rounded-[10px] w-full"></input>
+                      <input
+                        className="btn_class"
+                        placeholder="Digite seu Email"
+                      ></input>
                     </div>
                     <div>
                       <h1>Senha</h1>
                       <input
                         type="password"
-                        className="border-[3px] border-black rounded-[10px] w-full"
+                        className="btn_class"
+                        placeholder="Digite a sua Senha"
                       ></input>
-                      <a className="hover:underline text-red-800 cursor-pointer ">
-                        Esqueceu a senha?
-                      </a>
+                      <Link href="/senha">
+                        <a className="hover:underline text-red-800 cursor-pointer ">
+                          Esqueceu a senha?
+                        </a>
+                      </Link>
                     </div>
                     <div>
-                      <button className="w-full rounded-[30px] border-[1px] px-3 py-1 bg-black text-white font-bold ">
+                      <button className="w-full h-[45px] rounded-[30px] border-[1px] px-3 py-1 bg-black text-white font-bold ">
                         Entrar
                       </button>
-                      <p className="text-center">
-                        Ainda não possui Cadastro?{" "}
-                        <a className=" cursor-pointer text-green-800 hover:underline">
-                          Cadastre-se
-                        </a>{" "}
-                        agora
-                      </p>
+                      <Link href="/cadastro">
+                        <p className="text-center">
+                          Ainda não possui Cadastro?{" "}
+                          <a className=" cursor-pointer text-green-800 hover:underline">
+                            Cadastre-se
+                          </a>{" "}
+                          agora
+                        </p>
+                      </Link>
                     </div>
                   </div>
 
