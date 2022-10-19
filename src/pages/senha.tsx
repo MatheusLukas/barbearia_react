@@ -3,9 +3,9 @@ import Link from "next/link";
 
 export default function Senha() {
   return (
-    <div className="min-w-[600px] grid grid-cols-2 bg-[#121113] w-full h-screen justify-items-center place-items-center">
-      <div className="flex flex-col gap-[25px]">
-        <img src="/Logo_inicial.svg" />
+    <div className=" grid grid-cols-1   min-w-[600px] md:grid md:grid-cols-2 bg-[#121113] md:w-full md:h-screen md:justify-items-center md:place-items-center ">
+      <div className=" md:flex md:flex-col md:gap-[25px]">
+        <img className="w-[300px]  md:w-[556px]" src="/Logo_inicial.svg" />
         <div className="flex justify-center items-center">
           <h1 className="text-white w-[40ch] text-center">
             Na Barbearia Sullivan você encontra Profissionais qualificados, e
@@ -14,7 +14,7 @@ export default function Senha() {
         </div>
       </div>
       <div className="">
-        <div className="bg-white h-[500px] w-[500px] border rounded-[20px] flex flex-col p-6 gap-[20px] font-bold">
+        <div className="bg-[white] h-[500px] w-[500px] border rounded-[20px] flex flex-col p-6 gap-[20px] font-bold">
           <div className="absolute top-[105px] right-[430px] font-bold text-[20px] ">
             Redefinir a Senha
           </div>

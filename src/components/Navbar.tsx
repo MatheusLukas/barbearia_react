@@ -35,7 +35,7 @@ const Navbar = () => {
               <a className="hover:opacity-60 duration-500">Agendar</a>
             </Link>
           </li>
-          <li>
+          <li className="mx-4 my-6 md:my-0">
             <Login />
           </li>
         </ul>

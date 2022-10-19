@@ -19,7 +19,7 @@ export default function Login() {
 
   return (
     <>
-      <div className="flex items-center justify-center">
+      <div className="">
         <button
           onClick={openModal}
           className="border rounded-[30px] border-[1px] px-3 py-1 bg-white text-black font-bold "

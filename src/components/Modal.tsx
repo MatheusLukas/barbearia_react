@@ -3,6 +3,8 @@ import { Fragment, useState } from "react";
 import { ShowData } from "../components/ShowData";
 import Image from "next/image";
 import Calendar from "react-calendar";
+import Link from "next/link";
+import Hours from "./Hours";
 
 export default function MyModal() {
   const [value, onChange] = useState(new Date());
@@ -60,13 +62,30 @@ export default function MyModal() {
                   >
                     Escolha a Data e Hora
                   </Dialog.Title>
-                  <div className="mt-2 flex justify-center items-center font-bold">
+                  <div className="mt-4 flex justify-center items-center font-bold">
                     <ShowData />
                   </div>
 
-                  <div className="mt-4 flex justify-center">
-                    <Calendar onChange={onChange} value={value} />
+                  <div className="mt-4 flex flex-col gap-8">
+                    <div className="flex justify-center">
+                      <Calendar onChange={onChange} value={value} />
+                    </div>
+                    <div className="flex justify-center gap-12">
+                      <button className="border-[3px] border-gray-300 rounded-[10px] py-2 px-[16px] text-gray-400 hover:font-bold hover:text-black hover:border-black">
+                        <Link href="#manha">Manhã</Link>
+                      </button>
+                      <button className="border-[3px] border-gray-300 rounded-[10px] py-2 px-[20px] text-gray-400 hover:font-bold hover:text-black hover:border-black">
+                        <Link href="#tarde">Tarde</Link>
+                      </button>
+                      <button className="border-[3px] border-gray-300 rounded-[10px] py-2 px-[23px] text-gray-400 hover:font-bold hover:text-black hover:border-black">
+                        <Link href="#night">Noite</Link>
+                      </button>
+                    </div>
+                    <div>
+                      <Hours />
+                    </div>
                   </div>
+
                   <button
                     onClick={closeModal}
                     className="absolute top-1 right-1 hover:bg-red-400 rounded-xl flex items-center"
