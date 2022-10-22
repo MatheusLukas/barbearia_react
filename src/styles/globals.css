@@ -21,10 +21,9 @@ body {
   @apply border-[3px] border-black rounded-[20px] w-full h-[45px] placeholder:text-black px-3 font-light;
 }
 
-.btn_class_response {
+btn_class_response {
   @apply border-[3px] border-black rounded-[20px] w-[100px] h-[45px] placeholder:text-black px-3 font-light;
 }
-
 .card_hours {
-  @apply border-[3px] border-gray-300 text-gray-400 rounded-[10px] text-center py-3 hover:font-bold hover:text-black hover:border-black cursor-pointer;
+  @apply border-[3px] border-gray-500 text-gray-600 rounded-[10px] text-center py-3 hover:font-bold hover:text-black hover:border-black cursor-pointer;
 }

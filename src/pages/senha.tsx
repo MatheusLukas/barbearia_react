@@ -14,7 +14,7 @@ export default function Senha() {
         </div>
       </div>
       <div className="">
-        <div className="bg-[white] h-[500px] w-[500px] border rounded-[20px] flex flex-col p-6 gap-[20px] font-bold">
+        <div className="bg-white h-[500px] w-[500px] border rounded-[20px] flex flex-col p-6 gap-[20px] font-bold">
           <div className="absolute top-[105px] right-[430px] font-bold text-[20px] ">
             Redefinir a Senha
           </div>

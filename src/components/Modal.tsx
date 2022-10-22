@@ -5,6 +5,7 @@ import Image from "next/image";
 import Calendar from "react-calendar";
 import Link from "next/link";
 import Hours from "./Hours";
+import { Checkbox } from "./Checkbox";
 
 export default function MyModal() {
   const [value, onChange] = useState(new Date());
@@ -71,19 +72,17 @@ export default function MyModal() {
                       <Calendar onChange={onChange} value={value} />
                     </div>
                     <div className="flex justify-center gap-12">
-                      <button className="border-[3px] border-gray-300 rounded-[10px] py-2 px-[16px] text-gray-400 hover:font-bold hover:text-black hover:border-black">
-                        <Link href="#manha">Manhã</Link>
+                      <button className="border-[3px] border-gray-500 rounded-[10px] py-2 px-[16px] text-gray-600 hover:font-bold hover:text-black hover:border-black">
+                        <a href="#manha">Manhã</a>
                       </button>
-                      <button className="border-[3px] border-gray-300 rounded-[10px] py-2 px-[20px] text-gray-400 hover:font-bold hover:text-black hover:border-black">
-                        <Link href="#tarde">Tarde</Link>
-                      </button>
-                      <button className="border-[3px] border-gray-300 rounded-[10px] py-2 px-[23px] text-gray-400 hover:font-bold hover:text-black hover:border-black">
-                        <Link href="#night">Noite</Link>
+                      <button className="border-[3px] border-gray-500 rounded-[10px] py-2 px-[20px] text-gray-600 hover:font-bold hover:text-black hover:border-black">
+                        <a href="#tarde">Tarde</a>
                       </button>
                     </div>
                     <div>
                       <Hours />
                     </div>
+                    <div className="check"></div>
                   </div>
 
                   <button
