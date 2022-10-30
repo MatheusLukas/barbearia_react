@@ -19,18 +19,18 @@ export default function Hours() {
         modules={[Navigation]}
         className="mySwiper"
       >
-        <SwiperSlide className="card_hours">08:00</SwiperSlide>
         <SwiperSlide className="card_hours" id="manha">
-          09:00
+          08:00
         </SwiperSlide>
+        <SwiperSlide className="card_hours">09:00</SwiperSlide>
         <SwiperSlide className="card_hours">10:00</SwiperSlide>
         <SwiperSlide className="card_hours">11:00</SwiperSlide>
         <SwiperSlide className="card_hours">12:00</SwiperSlide>
-        <SwiperSlide className="card_hours">13:00</SwiperSlide>
-        <SwiperSlide className="card_hours">14:00</SwiperSlide>
         <SwiperSlide className="card_hours" id="tarde">
-          15:00
+          13:00
         </SwiperSlide>
+        <SwiperSlide className="card_hours">14:00</SwiperSlide>
+        <SwiperSlide className="card_hours">15:00</SwiperSlide>
         <SwiperSlide className="card_hours">16:00</SwiperSlide>
         <SwiperSlide className="card_hours">17:00</SwiperSlide>
         <SwiperSlide className="card_hours">18:00</SwiperSlide>

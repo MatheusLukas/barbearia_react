@@ -3,14 +3,14 @@ import { Fragment, useState } from "react";
 import { ShowData } from "../components/ShowData";
 import Image from "next/image";
 import Calendar from "react-calendar";
-import Link from "next/link";
+import "react-calendar/dist/Calendar.css";
 import Hours from "./Hours";
 import { Checkbox } from "./Checkbox";
 
 export default function MyModal() {
   const [value, onChange] = useState(new Date());
 
-  let [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
     setIsOpen(false);
@@ -21,7 +21,7 @@ export default function MyModal() {
   }
 
   return (
-    <>
+    <div>
       <div className="flex items-center justify-center">
         <button
           onClick={openModal}
@@ -69,7 +69,7 @@ export default function MyModal() {
 
                   <div className="mt-4 flex flex-col gap-8">
                     <div className="flex justify-center">
-                      <Calendar onChange={onChange} value={value} />
+                      <Calendar className="" onChange={onChange} value={value} />
                     </div>
                     <div className="flex justify-center gap-12">
                       <button className="border-[3px] border-gray-500 rounded-[10px] py-2 px-[16px] text-gray-600 hover:font-bold hover:text-black hover:border-black">
@@ -89,7 +89,7 @@ export default function MyModal() {
                     onClick={closeModal}
                     className="absolute top-1 right-1 hover:bg-red-400 rounded-xl flex items-center"
                   >
-                    <Image width={24} height={24} src="/Close.svg" alt="" />
+                    <Image width={24} height={24} src="/Close.svg" alt="Close modal" />
                   </button>
                 </Dialog.Panel>
               </Transition.Child>
@@ -97,6 +97,6 @@ export default function MyModal() {
           </div>
         </Dialog>
       </Transition>
-    </>
+    </div>
   );
 }

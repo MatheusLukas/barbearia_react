@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
-import styles from "../styles/Home.module.css";
 import Navbar from "../components/Navbar";
 import Carousel from "../components/Carousel";
 import { Footer } from "../components/Footer";
-import Image from "next/image";
+import Image from "next/future/image";
+import { NavbarLogado } from "../components/NavbarLogado";
 
 const Home: NextPage = () => {
   return (
@@ -12,14 +12,10 @@ const Home: NextPage = () => {
         <Navbar />
 
         <div className="flex justify-center items-center mt-[110px]">
-          <Image src="/Logo_inicial.svg" width={450} height={310} />
+          <Image src="/Logo_inicial.svg" alt="Logo" width={450} height={310} />
         </div>
       </div>
-
-      <div
-        className="bg-black h-[500px] flex justify-center items-center "
-        id="secao"
-      >
+      <div className="bg-black w-full h-[500px] flex justify-center items-center" id="secao">
         <Carousel />
       </div>
       <div>

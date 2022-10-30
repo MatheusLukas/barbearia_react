@@ -1,20 +1,16 @@
 export function Footer() {
   return (
-    <div className="bg-white w-full flex flex-col justify-center items-center gap-5">
-      <div className="container-footer flex flex-col justify-center items-center gap-4 sm:grid sm:grid-cols-2 sm:place-items-center h-[500px]">
+    <footer className="bg-white w-full flex flex-col justify-center items-center gap-5">
+      <div className=" flex flex-col justify-center items-center gap-4 sm:grid sm:grid-cols-2 sm:place-items-center h-[500px]">
         <div className="text-center mt-4">
-          <h1 className="font-bold text-[20px] sm:text-lg">
-            Aonde nos Encontrar?
-          </h1>
+          <h1 className="font-bold text-[20px] sm:text-lg">Aonde nos Encontrar?</h1>
           <p className="text-[20px] sm:text-lg">
             Av. São Paulo, 205 - Alvinópolis, Atibaia-SP, 12942-520
           </p>
         </div>
 
         <div className="text-center">
-          <h1 className="font-bold text-[20px] sm:text-lg">
-            Horários de Funcionamento
-          </h1>
+          <h1 className="font-bold text-[20px] sm:text-lg">Horários de Funcionamento</h1>
           <p className="text-[20px] sm:text-lg ">
             De Segunda à Sexta das 8:00h as 12:00h e 13:00h as 20:00h
           </p>
@@ -32,6 +28,6 @@ export function Footer() {
       <div className="flex justify-center">
         <p>Todos os Direitos Reservados © 2022</p>
       </div>
-    </div>
+    </footer>
   );
 }

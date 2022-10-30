@@ -6,8 +6,7 @@ import Image from "next/image";
 
 export default function Login() {
   const [value, onChange] = useState(new Date());
-
-  let [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
     setIsOpen(false);
@@ -63,10 +62,7 @@ export default function Login() {
                   <div className=" flex justify-center  flex-col font-bold gap-[20px] mt-[30px] ">
                     <div>
                       <h1 className="text-left">Email</h1>
-                      <input
-                        className="btn_class"
-                        placeholder="Digite seu Email"
-                      ></input>
+                      <input className="btn_class" placeholder="Digite seu Email"></input>
                     </div>
                     <div>
                       <h1>Senha</h1>
