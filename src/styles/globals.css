@@ -8,14 +8,12 @@
   @apply bg-back bg-no-repeat bg-center bg-fixed w-full h-screen bg-cover;
 }
 
-html,
 body {
   scroll-behavior: smooth;
-  padding: 0 !important;
 }
 
-body {
-  @apply font-poppins;
+html {
+  height: 100%;
 }
 
 .btn_class {

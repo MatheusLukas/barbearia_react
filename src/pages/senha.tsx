@@ -1,47 +1,49 @@
-import React from "react";
+import type { NextPage } from "next";
 import Link from "next/link";
 
-export default function Senha() {
+import Image from "next/future/image";
+
+const senha: NextPage = () => {
   return (
-    <div className="flex flex-col min-w-[600px] md:grid md:grid-cols-2 bg-[#121113]  md:w-full md:h-screen justify-items-center place-items-center ">
-      <div className="mt-[100px] md:mt-0">
-        <img className="w-[556px]" src="/Logo_inicial.svg" />
-        <div className="flex justify-center items-center">
-          <h1 className="text-white w-[40ch] text-center">
+    <div className="bg-black flex items-center justify-center p-5 min-h-screen">
+      <div className="flex-col md:flex-row flex items-center justify-around gap-5">
+        <div className="flex flex-col items-center justify-center md:w-[40%]">
+          <img className="" src="/Logo_inicial.svg" />
+          <h1 className="text-white text-center">
             Na Barbearia Sullivan você encontra Profissionais qualificados, e com apenas alguns
             cliques seu horário já está agendado!
           </h1>
         </div>
-      </div>
-      <div>
-        <div className="bg-white h-[500px] w-[500px] border rounded-[20px] flex flex-col p-6 gap-[20px] font-bold">
-          <div className="text-left font-bold text-[20px] ">Redefinir a Senha</div>
-          <div className=" mt-[20px] ">
-            <h1>Email</h1>
-            <input className="btn_class " placeholder="Digite seu Email"></input>
+        <form className="bg-white p-6 rounded-xl w-full md:w-[40%] flex flex-col gap-5">
+          <h1 className="text-left font-bold text-[20px]">Redefinir a Senha</h1>
+          <div>
+            <h1>E-mail</h1>
+            <input className="btn_class " placeholder="Digite seu Email" />
           </div>
+
           <div>
             <h1>Senha</h1>
-            <input className="btn_class" placeholder="Digite sua Senha"></input>
+            <input className="btn_class" placeholder="Digite sua Senha" />
           </div>
           <div>
             <h1>Confirmar Senha</h1>
-            <input className="btn_class" placeholder="Confirme a sua Senha"></input>
+            <input className="btn_class" placeholder="Confirme a sua Senha" />
           </div>
-
-          <div className="mt-[30px]">
+          <div>
             <button className="w-full rounded-[30px] border-[1px] h-[45px] px-3 py-1 bg-black text-white font-bold ">
               Redefinir Senha
             </button>
             <p className="text-center">
-              Retornar a área de {""}
+              Retornar a área de
               <Link href="/">
                 <a className=" cursor-pointer text-green-800 hover:underline"> Login</a>
               </Link>
             </p>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
-}
+};
+
+export default senha;
