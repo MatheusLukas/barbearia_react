@@ -14,33 +14,39 @@ const senha: NextPage = () => {
             cliques seu horário já está agendado!
           </h1>
         </div>
-        <form className="bg-white p-6 rounded-xl w-full md:w-[40%] flex flex-col gap-5">
-          <h1 className="text-left font-bold text-[20px]">Redefinir a Senha</h1>
-          <div>
-            <h1>E-mail</h1>
-            <input className="btn_class " placeholder="Digite seu Email" />
-          </div>
+        <div className=" mt-[50px] ">
+          <h1>Nome</h1>
+          <input className="btn_class " placeholder="Digite seu Nome"></input>
+        </div>
+        <div>
+          <h1>Sobrenome</h1>
+          <input className="btn_class " placeholder="Digite seu Sobrenome"></input>
+        </div>
+        <div>
+          <h1>Telefone</h1>
+          <input className="btn_class " placeholder="Digite seu Telefone"></input>
+        </div>
+        <div>
+          <h1>Email</h1>
+          <input className="btn_class " placeholder="Digite seu Email"></input>
+        </div>
+        <div>
+          <h1>Senha</h1>
+          <input className="btn_class " placeholder="Digite sua Senha"></input>
+        </div>
 
-          <div>
-            <h1>Senha</h1>
-            <input className="btn_class" placeholder="Digite sua Senha" />
-          </div>
-          <div>
-            <h1>Confirmar Senha</h1>
-            <input className="btn_class" placeholder="Confirme a sua Senha" />
-          </div>
-          <div>
-            <button className="w-full rounded-[30px] border-[1px] h-[45px] px-3 py-1 bg-black text-white font-bold ">
-              Redefinir Senha
-            </button>
-            <p className="text-center">
-              Retornar a área de
-              <Link href="/">
-                <a className=" cursor-pointer text-green-800 hover:underline"> Login</a>
-              </Link>
-            </p>
-          </div>
-        </form>
+        <div className="mt-[30px]">
+          <button className="w-full rounded-[30px] h-[45px] border-[1px] px-3 py-1 bg-black text-white font-bold ">
+            Cadastrar
+          </button>
+          <p className="text-center">
+            Já tem uma conta? Faça seu {""}
+            <Link href="/">
+              <a className=" cursor-pointer text-green-800 hover:underline"> Login</a>
+            </Link>
+            {""} agora
+          </p>
+        </div>
       </div>
     </div>
   );
