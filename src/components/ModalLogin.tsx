@@ -1,7 +1,7 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import { Fragment, useState, useRef } from "react";
+import { supabase } from "../utils/supabase";
 import Link from "next/link";
-
 import Image from "next/image";
 
 export default function Login() {
@@ -15,13 +15,40 @@ export default function Login() {
   function openModal() {
     setIsOpen(true);
   }
+  const emailInputRef = useRef<HTMLInputElement>(null);
+  const passwordInputRef = useRef<HTMLInputElement>(null);
+  async function signOut() {
+    const { error } = await supabase.auth.signOut();
+    console.log(error);
+  }
 
+  async function signIn() {
+    const email = emailInputRef.current?.value;
+    const password = passwordInputRef.current?.value;
+
+    if (!email) {
+      emailInputRef.current?.focus();
+      return;
+    }
+    if (!password) {
+      passwordInputRef.current?.focus();
+      return;
+    }
+
+    const { error } = await supabase.auth.signIn({
+      email,
+      password,
+    });
+    console.log(error);
+    emailInputRef.current.value = "";
+    passwordInputRef.current.value = "";
+  }
   return (
     <>
       <div className="">
         <button
           onClick={openModal}
-          className="border rounded-[30px] border-[1px] px-3 py-1 bg-white text-black font-bold "
+          className="border rounded-[30px] border-[1px] px-3 py-1 bg-white text-black font-bold"
         >
           Login
         </button>
@@ -42,7 +69,7 @@ export default function Login() {
           </Transition.Child>
 
           <div className="fixed inset-0 overflow-y-auto">
-            <div className="flex min-h-full items-center justify-center p-4 text-center ">
+            <div className="flex min-h-full items-center justify-center p-4 text-center">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -59,10 +86,14 @@ export default function Login() {
                   >
                     Login
                   </Dialog.Title>
-                  <div className=" flex justify-center  flex-col font-bold gap-[20px] mt-[30px] ">
+                  <div className=" flex justify-center  flex-col font-bold gap-[20px] mt-[30px]">
                     <div>
                       <h1 className="text-left">Email</h1>
-                      <input className="btn_class" placeholder="Digite seu Email"></input>
+                      <input
+                        className="btn_class"
+                        placeholder="Digite seu Email"
+                        ref={emailInputRef}
+                      ></input>
                     </div>
                     <div>
                       <h1>Senha</h1>
@@ -70,15 +101,19 @@ export default function Login() {
                         type="password"
                         className="btn_class"
                         placeholder="Digite a sua Senha"
+                        ref={passwordInputRef}
                       ></input>
                       <Link href="/senha">
-                        <a className="hover:underline text-red-800 cursor-pointer ">
+                        <a className="hover:underline text-red-800 cursor-pointer">
                           Esqueceu a senha?
                         </a>
                       </Link>
                     </div>
                     <div>
-                      <button className="w-full h-[45px] rounded-[30px] border-[1px] px-3 py-1 bg-black text-white font-bold ">
+                      <button
+                        className="w-full h-[45px] rounded-[30px] border-[1px] px-3 py-1 bg-black text-white font-bold"
+                        onClick={signIn}
+                      >
                         Entrar
                       </button>
                       <Link href="/cadastro">

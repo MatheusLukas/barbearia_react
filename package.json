@@ -17,6 +17,7 @@
     "@radix-ui/react-checkbox": "^1.0.1",
     "@radix-ui/react-dialog": "^1.0.2",
     "@radix-ui/react-popover": "1.0.2",
+    "@supabase/supabase-js": "1.35.4",
     "@types/react-calendar": "^3.5.3",
     "keen-slider": "^6.8.2",
     "next": "12.3.1",
