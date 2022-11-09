@@ -9,20 +9,21 @@
 }
 
 body {
-  scroll-behavior: smooth;
 }
 
 html {
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 .btn_class {
   @apply border-[3px] border-black rounded-[20px] w-full h-[45px] placeholder:text-black px-3 font-light;
 }
 
-btn_class_response {
-  @apply border-[3px] border-black rounded-[20px] w-[100px] h-[45px] placeholder:text-black px-3 font-light;
+.card {
+  @apply border-[3px] border-gray-500 text-gray-600 rounded-[10px] text-center py-3 hover:font-bold hover:text-black hover:border-black focus:bg-zinc-700 focus:text-white focus:border-black cursor-pointer;
 }
-.card_hours {
-  @apply border-[3px] border-gray-500 text-gray-600 rounded-[10px] text-center py-3 hover:font-bold hover:text-black hover:border-black cursor-pointer;
+
+.cardcheck {
+  @apply border-[3px] border-gray-500 text-gray-600 rounded-[10px] text-center px-8;
 }

@@ -1,40 +1,68 @@
-import React, { useRef, useState } from "react";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
+import { useState, useEffect } from "react";
+import { useKeenSlider } from "keen-slider/react";
+import { CaretLeft, CaretRight, Spinner } from "phosphor-react";
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
+import "keen-slider/keen-slider.min.css";
+import { hoursArray } from "../utils/hoursArray";
 
-// import required modules
-import { Pagination, Navigation } from "swiper";
+const adsPerView = 3;
+const spacing = 24;
 
 export default function Hours() {
+  const [hoursData, setHoursData] = useState<string[]>([]);
+  const [isSliderLoaded, setIsSliderLoaded] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
+    initial: 0,
+    slides: {
+      spacing,
+      perView: adsPerView,
+    },
+    loop: true,
+    slideChanged(slider) {
+      setCurrentSlide(slider.track.details.rel);
+    },
+    created() {
+      setIsSliderLoaded(true);
+    },
+  });
+
+  useEffect(() => {
+    setHoursData(hoursArray);
+  }, []);
+
+  if (hoursData.length === 0) {
+    return null;
+  }
+
   return (
-    <>
-      <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
-        loop={true}
-        modules={[Navigation]}
-        className="mySwiper"
-      >
-        <SwiperSlide className="card_hours" id="manha">
-          08:00
-        </SwiperSlide>
-        <SwiperSlide className="card_hours">09:00</SwiperSlide>
-        <SwiperSlide className="card_hours">10:00</SwiperSlide>
-        <SwiperSlide className="card_hours">11:00</SwiperSlide>
-        <SwiperSlide className="card_hours">12:00</SwiperSlide>
-        <SwiperSlide className="card_hours" id="tarde">
-          13:00
-        </SwiperSlide>
-        <SwiperSlide className="card_hours">14:00</SwiperSlide>
-        <SwiperSlide className="card_hours">15:00</SwiperSlide>
-        <SwiperSlide className="card_hours">16:00</SwiperSlide>
-        <SwiperSlide className="card_hours">17:00</SwiperSlide>
-        <SwiperSlide className="card_hours">18:00</SwiperSlide>
-      </Swiper>
-    </>
+    <div className="relative">
+      <div ref={sliderRef} className="keen-slider">
+        {hoursArray.map((hour, index) => (
+          <button
+            className={`card keen-slider__slide number-slide${index + 1}`}
+            key={index}
+          >
+            {hour}
+          </button>
+        ))}
+      </div>
+      {isSliderLoaded && instanceRef.current && (
+        <>
+          <button
+            className="absolute top-1/2 -translate-y-1/2 -left-6"
+            onClick={instanceRef.current.prev}
+          >
+            <CaretLeft size={20} />
+          </button>
+          <button
+            className="absolute top-1/2 -translate-y-1/2 -right-6"
+            onClick={instanceRef.current.next}
+          >
+            <CaretRight size={20} />
+          </button>
+        </>
+      )}
+    </div>
   );
 }

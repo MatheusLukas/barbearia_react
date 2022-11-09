@@ -5,7 +5,7 @@ import Image from "next/image";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import Hours from "./Hours";
-import { Checkbox } from "./Checkbox";
+import Checkbox from "./Checkbox";
 
 export default function MyModal() {
   const [value, onChange] = useState(new Date());
@@ -56,7 +56,7 @@ export default function MyModal() {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="w-[700px] transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="w-[750px] transform overflow-hidden rounded-2xl bg-white p-8 text-left align-middle shadow-xl transition-all">
                   <Dialog.Title
                     as="h3"
                     className="absolute top-[10px] left-[15px] font-bold text-[20px]"
@@ -69,27 +69,58 @@ export default function MyModal() {
 
                   <div className="mt-4 flex flex-col gap-8">
                     <div className="flex justify-center">
-                      <Calendar className="" onChange={onChange} value={value} />
+                      <Calendar
+                        className=""
+                        onChange={onChange}
+                        value={value}
+                      />
                     </div>
-                    <div className="flex justify-center gap-12">
-                      <button className="border-[3px] border-gray-500 rounded-[10px] py-2 px-[16px] text-gray-600 hover:font-bold hover:text-black hover:border-black">
-                        <a href="#manha">Manhã</a>
-                      </button>
-                      <button className="border-[3px] border-gray-500 rounded-[10px] py-2 px-[20px] text-gray-600 hover:font-bold hover:text-black hover:border-black">
-                        <a href="#tarde">Tarde</a>
-                      </button>
+                    <div className="flex justify-center items-center">
+                      <form>
+                        <div className="flex items-center gap-2">
+                          <Checkbox
+                            id="cabelo"
+                            onCheckedChange={(checked) => {
+                              const isChecked = Boolean(checked);
+                            }}
+                          />
+                          <label htmlFor="cabelo">Cabelo</label>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Checkbox id="bigode" />
+                          <label htmlFor="bigode">Bigode</label>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Checkbox id="barba" />
+                          <label htmlFor="barba">Barba</label>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Checkbox id="quimico" />
+                          <label htmlFor="quimico">Produtos Quimicos</label>
+                        </div>
+                      </form>
                     </div>
                     <div>
                       <Hours />
                     </div>
-                    <div className="check"></div>
+
+                    <div className="flex justify-center">
+                      <button className="md:px-40 px-24 rounded-[30px] h-[45px] border-[1px] px-3 py-1 bg-black text-white font-bold">
+                        Agendar
+                      </button>
+                    </div>
                   </div>
 
                   <button
                     onClick={closeModal}
                     className="absolute top-1 right-1 hover:bg-red-400 rounded-xl flex items-center"
                   >
-                    <Image width={24} height={24} src="/Close.svg" alt="Close modal" />
+                    <Image
+                      width={24}
+                      height={24}
+                      src="/Close.svg"
+                      alt="Close modal"
+                    />
                   </button>
                 </Dialog.Panel>
               </Transition.Child>

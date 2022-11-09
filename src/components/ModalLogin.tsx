@@ -48,7 +48,7 @@ export default function Login() {
       <div className="">
         <button
           onClick={openModal}
-          className="border rounded-[30px] border-[1px] px-3 py-1 bg-white text-black font-bold"
+          className="rounded-[30px] border-[1px] px-3 py-1 bg-white text-black font-bold"
         >
           Login
         </button>
