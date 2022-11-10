@@ -7,10 +7,18 @@ import "react-calendar/dist/Calendar.css";
 import Hours from "./Hours";
 import Checkbox from "./Checkbox";
 
+import React from "react";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function MyModal() {
   const [value, onChange] = useState(new Date());
 
   const [isOpen, setIsOpen] = useState(false);
+
+  const falhaAgendamento = () => toast("Algo deu Errado!"); //Toast de falha no agendamento, tem que passar em um onClick
+  const agendamentoCorreto = () => toast("Agendado com Sucesso!"); //Toast de um agendamento com sucesso, tem que passar em um onClick
 
   function closeModal() {
     setIsOpen(false);

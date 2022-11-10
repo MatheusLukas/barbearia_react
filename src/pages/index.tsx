@@ -15,7 +15,10 @@ const Home: NextPage = () => {
           <Image src="/Logo_inicial.svg" alt="Logo" width={450} height={310} />
         </div>
       </div>
-      <div className="bg-black w-full h-[500px] flex justify-center items-center" id="secao">
+      <div
+        className="bg-black w-full h-[500px] flex justify-center items-center"
+        id="secao"
+      >
         <Carousel />
       </div>
       <div>

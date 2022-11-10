@@ -3,6 +3,8 @@ import { Fragment, useState, useRef } from "react";
 import { supabase } from "../utils/supabase";
 import Link from "next/link";
 import Image from "next/image";
+import React from "react";
+import { toast } from "react-toastify";
 
 export default function Login() {
   const [value, onChange] = useState(new Date());
@@ -39,7 +41,10 @@ export default function Login() {
       email,
       password,
     });
-    console.log(error);
+    if (error) {
+      return toast.error("Login Incorreto!");
+    }
+    toast.success("Logado com sucesso!");
     emailInputRef.current.value = "";
     passwordInputRef.current.value = "";
   }

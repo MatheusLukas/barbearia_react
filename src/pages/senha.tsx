@@ -3,7 +3,13 @@ import Link from "next/link";
 
 import Image from "next/future/image";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const senha: NextPage = () => {
+  const senhaRedefinida = () => toast("Senha redefinida com Sucesso!"); //Toast de senha redefinida, tem que passar em um onClick
+  const senhaErrada = () => toast("Algo deu Errado!"); //Toast de falha ao redefinir senha, tem que passar em um onClick
+
   return (
     <div className="bg-black flex items-center justify-center p-5 min-h-screen">
       <div className="flex-col md:flex-row flex items-center justify-around gap-5">
