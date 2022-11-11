@@ -2,7 +2,7 @@ export function Footer() {
   return (
     <footer className="bg-white w-full flex flex-col justify-center items-center gap-5">
       <div className=" flex flex-col justify-center items-center gap-4 sm:grid sm:grid-cols-2 sm:place-items-center h-[500px]">
-        <div className="text-center mt-4">
+        <div className="text-center">
           <h1 className="font-bold text-[20px] sm:text-lg">Aonde nos Encontrar?</h1>
           <p className="text-[20px] sm:text-lg">
             Av. São Paulo, 205 - Alvinópolis, Atibaia-SP, 12942-520

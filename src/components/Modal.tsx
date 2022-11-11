@@ -6,26 +6,38 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import Hours from "./Hours";
 import Checkbox from "./Checkbox";
-
 import React from "react";
-
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 export default function MyModal() {
   const [value, onChange] = useState(new Date());
+  const services: string[] = [];
 
   const [isOpen, setIsOpen] = useState(false);
-
-  const falhaAgendamento = () => toast("Algo deu Errado!"); //Toast de falha no agendamento, tem que passar em um onClick
-  const agendamentoCorreto = () => toast("Agendado com Sucesso!"); //Toast de um agendamento com sucesso, tem que passar em um onClick
-
   function closeModal() {
     setIsOpen(false);
   }
 
   function openModal() {
     setIsOpen(true);
+  }
+
+  function checkService(service: string, isChecked: boolean) {
+    if (isChecked == true) {
+      if (services.length == 0) {
+        services.push(service);
+      } else {
+        if (services.includes(service)) return;
+        else services.push(service);
+      }
+      console.log(services);
+    }
+    if (isChecked == false) {
+      const index = services.indexOf(service);
+      if (index > -1) {
+        services.splice(index, 1);
+      }
+      console.log(services);
+    }
   }
 
   return (
@@ -77,11 +89,7 @@ export default function MyModal() {
 
                   <div className="mt-4 flex flex-col gap-8">
                     <div className="flex justify-center">
-                      <Calendar
-                        className=""
-                        onChange={onChange}
-                        value={value}
-                      />
+                      <Calendar className="" onChange={onChange} value={value} />
                     </div>
                     <div className="flex justify-center items-center">
                       <form>
@@ -90,20 +98,39 @@ export default function MyModal() {
                             id="cabelo"
                             onCheckedChange={(checked) => {
                               const isChecked = Boolean(checked);
+                              checkService("cabelo", isChecked);
                             }}
                           />
                           <label htmlFor="cabelo">Cabelo</label>
                         </div>
                         <div className="flex items-center gap-2">
-                          <Checkbox id="bigode" />
-                          <label htmlFor="bigode">Bigode</label>
+                          <Checkbox
+                            id="sobrancelha"
+                            onCheckedChange={(checked) => {
+                              const isChecked = Boolean(checked);
+                              checkService("sobrancelha", isChecked);
+                            }}
+                          />
+                          <label htmlFor="sobrancelha">Sobrancelha</label>
                         </div>
                         <div className="flex items-center gap-2">
-                          <Checkbox id="barba" />
+                          <Checkbox
+                            id="barba"
+                            onCheckedChange={(checked) => {
+                              const isChecked = Boolean(checked);
+                              checkService("barba", isChecked);
+                            }}
+                          />
                           <label htmlFor="barba">Barba</label>
                         </div>
                         <div className="flex items-center gap-2">
-                          <Checkbox id="quimico" />
+                          <Checkbox
+                            id="quimico"
+                            onCheckedChange={(checked) => {
+                              const isChecked = Boolean(checked);
+                              checkService("quimico", isChecked);
+                            }}
+                          />
                           <label htmlFor="quimico">Produtos Quimicos</label>
                         </div>
                       </form>
@@ -123,12 +150,7 @@ export default function MyModal() {
                     onClick={closeModal}
                     className="absolute top-1 right-1 hover:bg-red-400 rounded-xl flex items-center"
                   >
-                    <Image
-                      width={24}
-                      height={24}
-                      src="/Close.svg"
-                      alt="Close modal"
-                    />
+                    <Image width={24} height={24} src="/Close.svg" alt="Close modal" />
                   </button>
                 </Dialog.Panel>
               </Transition.Child>

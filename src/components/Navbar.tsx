@@ -17,7 +17,9 @@ const Navbar = () => {
               src="/logo.svg"
               alt=""
             />
-            <p className="mx-3">Sullivan</p>
+            <Link href="/" className="text-x1">
+              <a className="mx-3 text-x1 hover:opacity-60 duration-500">Sullivan</a>
+            </Link>
           </div>
           <Sandwich />
         </div>

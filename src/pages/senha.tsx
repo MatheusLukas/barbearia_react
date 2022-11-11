@@ -16,45 +16,31 @@ const senha: NextPage = () => {
         <div className=" flex flex-col items-center justify-center md:w-[40%]">
           <img className="" src="/Logo_inicial.svg" />
           <h1 className="text-white text-center">
-            Na Barbearia Sullivan você encontra Profissionais qualificados, e
-            com apenas alguns cliques seu horário já está agendado!
+            Na Barbearia Sullivan você encontra Profissionais qualificados, e com apenas alguns
+            cliques seu horário já está agendado!
           </h1>
         </div>
         <div className="bg-white p-6 rounded-xl w-full md:w-[40%] flex flex-col gap-5">
-          <h1 className="font-bold text-2xl md:text-left text-center ">
-            Redefinir a Senha
-          </h1>
+          <h1 className="font-bold text-2xl md:text-left text-center ">Redefinir a Senha</h1>
           <div className=" mt-[30px]">
             <h1>Nome</h1>
             <input className="btn_class " placeholder="Digite seu Nome"></input>
           </div>
           <div>
             <h1>Sobrenome</h1>
-            <input
-              className="btn_class "
-              placeholder="Digite seu Sobrenome"
-            ></input>
+            <input className="btn_class " placeholder="Digite seu Sobrenome"></input>
           </div>
           <div>
             <h1>Telefone</h1>
-            <input
-              className="btn_class "
-              placeholder="Digite seu Telefone"
-            ></input>
+            <input className="btn_class " placeholder="Digite seu Telefone"></input>
           </div>
           <div>
             <h1>Email</h1>
-            <input
-              className="btn_class "
-              placeholder="Digite seu Email"
-            ></input>
+            <input className="btn_class " placeholder="Digite seu Email"></input>
           </div>
           <div>
             <h1>Senha</h1>
-            <input
-              className="btn_class "
-              placeholder="Digite sua Senha"
-            ></input>
+            <input className="btn_class " placeholder="Digite sua Senha"></input>
           </div>
 
           <div className="mt-[30px]">
@@ -64,10 +50,7 @@ const senha: NextPage = () => {
             <p className="text-center">
               Já tem uma conta? Faça seu {""}
               <Link href="/">
-                <a className=" cursor-pointer text-green-800 hover:underline">
-                  {" "}
-                  Login
-                </a>
+                <a className=" cursor-pointer text-green-800 hover:underline"> Login</a>
               </Link>
               {""} agora
             </p>
