@@ -4,7 +4,7 @@ import Image from "next/future/image";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const senha: NextPage = () => {
+const Senha: NextPage = () => {
   const senhaRedefinida = () => toast("Senha redefinida com Sucesso!"); //Toast de senha redefinida, tem que passar em um onClick
   const senhaErrada = () => toast("Algo deu Errado!"); //Toast de falha ao redefinir senha, tem que passar em um onClick
 
@@ -59,4 +59,4 @@ const senha: NextPage = () => {
   );
 };
 
-export default senha;
+export default Senha;
