@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
-import Navbar from "../components/Navbar";
 import Carousel from "../components/Carousel";
 import { Footer } from "../components/Footer";
 import Image from "next/future/image";
-import { NavbarLogado } from "../components/NavbarLogado";
+import dynamic from "next/dynamic";
+const Navbar = dynamic(() => import("../components/Navbar"), { ssr: false });
 
 const Home: NextPage = () => {
   return (
@@ -15,10 +15,7 @@ const Home: NextPage = () => {
           <Image src="/Logo_inicial.svg" alt="Logo" width={450} height={310} />
         </div>
       </div>
-      <div
-        className="bg-black w-full h-[500px] flex justify-center items-center"
-        id="secao"
-      >
+      <div className="bg-black w-full h-[500px] flex justify-center items-center" id="secao">
         <Carousel />
       </div>
       <div>

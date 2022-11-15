@@ -131,7 +131,7 @@ export default function MyModal() {
                               checkService("quimico", isChecked);
                             }}
                           />
-                          <label htmlFor="quimico">Produtos Quimicos</label>
+                          <label htmlFor="quimico">Produtos Químicos</label>
                         </div>
                       </form>
                     </div>
@@ -140,7 +140,7 @@ export default function MyModal() {
                     </div>
 
                     <div className="flex justify-center">
-                      <button className="md:px-40 px-24 rounded-[30px] h-[45px] border-[1px] px-3 py-1 bg-black text-white font-bold">
+                      <button className="md:px-40 px-24 rounded-[30px] h-[45px] border-[1px] py-1 bg-black text-white font-bold">
                         Agendar
                       </button>
                     </div>

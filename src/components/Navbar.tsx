@@ -1,10 +1,15 @@
-import Link from "next/link";
 import React from "react";
+import Link from "next/link";
 import Sandwich from "./Sandwich";
 import Image from "next/image";
 import Login from "./ModalLogin";
+import Account from "./Account";
+import { useAuth } from "../hooks/useAuth";
 
 const Navbar = () => {
+  const { user } = useAuth();
+  console.log(user);
+
   return (
     <nav className="bg-black py-3">
       <div className="md:flex md:items-center md:justify-between">
@@ -38,7 +43,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="mx-4 my-6 md:my-0">
-            <Login />
+            <Greeting />
           </li>
         </ul>
       </div>
@@ -46,4 +51,11 @@ const Navbar = () => {
   );
 };
 
+function Greeting() {
+  const { user } = useAuth();
+  if (user) {
+    return <Account />;
+  }
+  return <Login />;
+}
 export default Navbar;

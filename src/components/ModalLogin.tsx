@@ -1,5 +1,5 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState, useRef } from "react";
+import { Fragment, useState, useRef, useEffect } from "react";
 import { supabase } from "../utils/supabase";
 import Link from "next/link";
 import Image from "next/image";
@@ -41,12 +41,13 @@ export default function Login() {
       email,
       password,
     });
+    emailInputRef.current.value = "";
+    passwordInputRef.current.value = "";
     if (error) {
       return toast.error("Login Incorreto!");
     }
-    toast.success("Logado com sucesso!");
-    emailInputRef.current.value = "";
-    passwordInputRef.current.value = "";
+    toast.success("Logado com Sucesso!");
+    closeModal();
   }
   return (
     <>

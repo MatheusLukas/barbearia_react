@@ -1,6 +1,7 @@
-import Navbar from "../components/Navbar";
 import Modal from "../components/Modal";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+const Navbar = dynamic(() => import("../components/Navbar"), { ssr: false });
 
 function Agendamento() {
   return (

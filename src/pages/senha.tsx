@@ -1,8 +1,6 @@
 import type { NextPage } from "next";
 import Link from "next/link";
-
 import Image from "next/future/image";
-
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

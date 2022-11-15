@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 import { useKeenSlider } from "keen-slider/react";
 import { CaretLeft, CaretRight, Spinner } from "phosphor-react";
-
 import "keen-slider/keen-slider.min.css";
 import { hoursArray } from "../utils/hoursArray";
-
 const adsPerView = 3;
 const spacing = 24;
 
@@ -39,10 +37,7 @@ export default function Hours() {
     <div className="relative">
       <div ref={sliderRef} className="keen-slider">
         {hoursArray.map((hour, index) => (
-          <button
-            className={`card keen-slider__slide number-slide${index + 1}`}
-            key={index}
-          >
+          <button className={`card keen-slider__slide number-slide${index + 1}`} key={index}>
             {hour}
           </button>
         ))}
