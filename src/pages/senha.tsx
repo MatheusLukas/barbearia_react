@@ -4,10 +4,7 @@ import Image from "next/future/image";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const Senha: NextPage = () => {
-  const senhaRedefinida = () => toast("Senha redefinida com Sucesso!"); //Toast de senha redefinida, tem que passar em um onClick
-  const senhaErrada = () => toast("Algo deu Errado!"); //Toast de falha ao redefinir senha, tem que passar em um onClick
-
+export default function Senha() {
   return (
     <div className="bg-black flex items-center justify-center p-5 min-h-screen">
       <div className="flex-col md:flex-row flex items-center justify-around gap-5">
@@ -46,9 +43,9 @@ const Senha: NextPage = () => {
               Redefinir Senha
             </button>
             <p className="text-center">
-              Já tem uma conta? Faça seu {""}
+              Já tem uma conta? {""}
               <Link href="/">
-                <a className=" cursor-pointer text-green-800 hover:underline"> Login</a>
+                <a className=" cursor-pointer text-green-800 hover:underline"> Faça seu Login</a>
               </Link>
               {""} agora
             </p>
@@ -57,6 +54,4 @@ const Senha: NextPage = () => {
       </div>
     </div>
   );
-};
-
-export default Senha;
+}

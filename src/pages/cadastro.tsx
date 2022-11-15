@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { supabase } from "../utils/supabase";
 import { FormEvent, useRef } from "react";
 
-const senha: NextPage = () => {
+export default function Cadastro() {
   const emailInputRef = useRef<HTMLInputElement>(null);
   const passwordInputRef = useRef<HTMLInputElement>(null);
   const confirmPasswordInputRef = useRef<HTMLInputElement>(null);
@@ -130,6 +130,4 @@ const senha: NextPage = () => {
       </div>
     </div>
   );
-};
-
-export default senha;
+}

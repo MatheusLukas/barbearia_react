@@ -3,7 +3,7 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 const Navbar = dynamic(() => import("../components/Navbar"), { ssr: false });
 
-function Agendamento() {
+export default function Agendamento() {
   return (
     <div>
       <div className="background-home font-poppins">
@@ -16,5 +16,3 @@ function Agendamento() {
     </div>
   );
 }
-
-export default Agendamento;

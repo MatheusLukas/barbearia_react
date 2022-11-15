@@ -5,7 +5,7 @@ import Image from "next/future/image";
 import dynamic from "next/dynamic";
 const Navbar = dynamic(() => import("../components/Navbar"), { ssr: false });
 
-const Home: NextPage = () => {
+export default function Home() {
   return (
     <div className="font-poppins">
       <div className="background-home">
@@ -23,6 +23,4 @@ const Home: NextPage = () => {
       </div>
     </div>
   );
-};
-
-export default Home;
+}
