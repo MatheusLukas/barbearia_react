@@ -35,20 +35,6 @@ export default function Hours() {
   }
   console.log(currentHour);
 
-  async function insert() {
-    try {
-      const { data, error } = await supabase.from("product").insert([newProduct]);
-      productNameRef.current.value = "";
-      productPriceRef.current.value = "";
-      productQuantityRef.current.value = "";
-      handleChange();
-      closeModal();
-      return toast.success("Produto Adicionado");
-    } catch (error) {
-      return toast.error("Algo deu Errado");
-    }
-  }
-
   return (
     <div className="relative">
       <div ref={sliderRef} className="keen-slider">
