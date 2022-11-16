@@ -29,6 +29,14 @@ export default function MyModal() {
   }),
     [value];
 
+  function verifyUser() {
+    if (user) {
+      openModal();
+      return;
+    }
+    toast.error("Você Precisa estar Logado para Agendar");
+  }
+
   function checkService(service: string, isChecked: boolean) {
     if (isChecked == true) {
       if (services.length == 0) {
@@ -50,9 +58,9 @@ export default function MyModal() {
 
   async function insert() {
     const agendaData = {
-      agenda_day: value.getDate,
-      agenda_time: "12:32",
-      agenda_service: services.toString,
+      agenda_day: "2022-11-10",
+      agenda_time: "09:00",
+      agenda_service: "cabelo",
       agenda_user_id: user?.id,
       agenda_user_name: user?.user_metadata.name,
       agenda_user_phone: user?.user_metadata.phone,
@@ -60,12 +68,13 @@ export default function MyModal() {
     const { data, error } = await supabase.from("agenda").insert([agendaData]);
     console.log(error);
     console.log(data);
+    toast.success("Agendado com Sucesso!");
   }
   return (
     <div>
       <div className="flex items-center justify-center">
         <button
-          onClick={openModal}
+          onClick={verifyUser}
           className="border rounded-full p-2 w-[150px] hover:bg-white hover:scale-110 font-bold "
         >
           Agende Aqui
