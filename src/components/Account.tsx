@@ -1,5 +1,4 @@
 import * as React from "react";
-import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Router from "next/router";
@@ -26,16 +25,16 @@ export default function BasicMenu() {
 
   return (
     <div>
-      <Button
+      <button
+        className="text-black text-[16px] capitalize border-[1px] bg-white rounded-[30px] px-3 py-1 font-bold hover:bg-white"
         id="basic-button"
         aria-controls={open ? "basic-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
-        className="text-black text-[16px] capitalize border-[1px] bg-white rounded-[30px] px-3 py-1 font-bold hover:bg-white"
       >
         Conta
-      </Button>
+      </button>
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}
@@ -48,11 +47,8 @@ export default function BasicMenu() {
         <MenuItem onClick={handleClose}>
           <a onClick={() => goUser("user")}>Minha Conta</a>
         </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <a onClick={() => goUser("signUp")}>Criar uma Conta</a>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <a onClick={signOut}>Sair</a>
+        <MenuItem onClick={signOut}>
+          <a>Sair</a>
         </MenuItem>
       </Menu>
     </div>

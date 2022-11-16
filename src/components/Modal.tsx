@@ -1,16 +1,20 @@
+import React from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { ShowData } from "../components/ShowData";
 import Image from "next/image";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import Hours from "./Hours";
 import Checkbox from "./Checkbox";
-import React from "react";
+import { supabase } from "../utils/supabase";
+import { toast } from "react-toastify";
+import { useAuth } from "../hooks/useAuth";
 
 export default function MyModal() {
   const [value, onChange] = useState(new Date());
   const services: string[] = [];
+  const { user } = useAuth();
 
   const [isOpen, setIsOpen] = useState(false);
   function closeModal() {
@@ -20,6 +24,10 @@ export default function MyModal() {
   function openModal() {
     setIsOpen(true);
   }
+  useEffect(() => {
+    console.log(value);
+  }),
+    [value];
 
   function checkService(service: string, isChecked: boolean) {
     if (isChecked == true) {
@@ -40,6 +48,19 @@ export default function MyModal() {
     }
   }
 
+  async function insert() {
+    const agendaData = {
+      agenda_day: value.getDate,
+      agenda_time: "12:32",
+      agenda_service: services.toString,
+      agenda_user_id: user?.id,
+      agenda_user_name: user?.user_metadata.name,
+      agenda_user_phone: user?.user_metadata.phone,
+    };
+    const { data, error } = await supabase.from("agenda").insert([agendaData]);
+    console.log(error);
+    console.log(data);
+  }
   return (
     <div>
       <div className="flex items-center justify-center">
@@ -140,7 +161,10 @@ export default function MyModal() {
                     </div>
 
                     <div className="flex justify-center">
-                      <button className="md:px-40 px-24 rounded-[30px] h-[45px] border-[1px] py-1 bg-black text-white font-bold">
+                      <button
+                        className="md:px-40 px-24 rounded-[30px] h-[45px] border-[1px] py-1 bg-black text-white font-bold"
+                        onClick={insert}
+                      >
                         Agendar
                       </button>
                     </div>

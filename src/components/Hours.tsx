@@ -8,6 +8,7 @@ const spacing = 24;
 
 export default function Hours() {
   const [hoursData, setHoursData] = useState<string[]>([]);
+  const [currentHour, setCurrentHour] = useState("");
   const [isSliderLoaded, setIsSliderLoaded] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
@@ -32,12 +33,31 @@ export default function Hours() {
   if (hoursData.length === 0) {
     return null;
   }
+  console.log(currentHour);
+
+  async function insert() {
+    try {
+      const { data, error } = await supabase.from("product").insert([newProduct]);
+      productNameRef.current.value = "";
+      productPriceRef.current.value = "";
+      productQuantityRef.current.value = "";
+      handleChange();
+      closeModal();
+      return toast.success("Produto Adicionado");
+    } catch (error) {
+      return toast.error("Algo deu Errado");
+    }
+  }
 
   return (
     <div className="relative">
       <div ref={sliderRef} className="keen-slider">
         {hoursArray.map((hour, index) => (
-          <button className={`card keen-slider__slide number-slide${index + 1}`} key={index}>
+          <button
+            className={`card keen-slider__slide number-slide${index + 1}`}
+            key={index}
+            onClick={() => setCurrentHour(hour)}
+          >
             {hour}
           </button>
         ))}
