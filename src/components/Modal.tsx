@@ -58,7 +58,7 @@ export default function MyModal() {
 
   async function insert() {
     const agendaData = {
-      agenda_day: "2022-11-10",
+      agenda_day: value,
       agenda_time: "09:00",
       agenda_service: "cabelo",
       agenda_user_id: user?.id,
