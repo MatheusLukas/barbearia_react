@@ -34,7 +34,7 @@ export default function MyModal() {
       openModal();
       return;
     }
-    toast.error("Você Precisa estar Logado para Agendar");
+    toast.error("Por favor, Entre em uma conta antes de Agendar!");
   }
 
   function checkService(service: string, isChecked: boolean) {
@@ -57,10 +57,11 @@ export default function MyModal() {
   }
 
   async function insert() {
+    const getServices = services.toString();
     const agendaData = {
       agenda_day: value,
       agenda_time: "09:00",
-      agenda_service: "cabelo",
+      agenda_service: getServices,
       agenda_user_id: user?.id,
       agenda_user_name: user?.user_metadata.name,
       agenda_user_phone: user?.user_metadata.phone,
