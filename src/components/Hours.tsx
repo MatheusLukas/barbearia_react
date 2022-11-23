@@ -33,7 +33,9 @@ export default function Hours() {
   if (hoursData.length === 0) {
     return null;
   }
-  console.log(currentHour);
+  function setOnLocalstorage(hour: string) {
+    localStorage.setItem("currentHour", JSON.stringify(hour));
+  }
 
   return (
     <div className="relative">
@@ -42,7 +44,7 @@ export default function Hours() {
           <button
             className={`card keen-slider__slide number-slide${index + 1}`}
             key={index}
-            onClick={() => setCurrentHour(hour)}
+            onClick={() => setOnLocalstorage(hour)}
           >
             {hour}
           </button>

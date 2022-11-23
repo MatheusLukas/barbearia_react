@@ -15,7 +15,6 @@ export default function MyModal() {
   const [value, onChange] = useState(new Date());
   const services: string[] = [];
   const { user } = useAuth();
-
   const [isOpen, setIsOpen] = useState(false);
   function closeModal() {
     setIsOpen(false);
@@ -24,17 +23,12 @@ export default function MyModal() {
   function openModal() {
     setIsOpen(true);
   }
-  useEffect(() => {
-    console.log(value);
-  }),
-    [value];
-
   function verifyUser() {
     if (user) {
       openModal();
       return;
     }
-    toast.error("Por favor, Entre em uma conta antes de Agendar!");
+    toast.error("Por favor, Entre em uma conta antes de agendar!");
   }
 
   function checkService(service: string, isChecked: boolean) {
@@ -45,31 +39,29 @@ export default function MyModal() {
         if (services.includes(service)) return;
         else services.push(service);
       }
-      console.log(services);
     }
     if (isChecked == false) {
       const index = services.indexOf(service);
       if (index > -1) {
         services.splice(index, 1);
       }
-      console.log(services);
     }
   }
 
   async function insert() {
-    const getServices = services.toString();
+    const getServices = await services.sort().toString();
+    const hours = localStorage.getItem("currentHour");
     const agendaData = {
       agenda_day: value,
-      agenda_time: "09:00",
+      agenda_time: hours,
       agenda_service: getServices,
       agenda_user_id: user?.id,
       agenda_user_name: user?.user_metadata.name,
       agenda_user_phone: user?.user_metadata.phone,
     };
     const { data, error } = await supabase.from("agenda").insert([agendaData]);
-    console.log(error);
-    console.log(data);
     toast.success("Agendado com Sucesso!");
+    closeModal();
   }
   return (
     <div>

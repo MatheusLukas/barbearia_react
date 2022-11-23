@@ -24,3 +24,9 @@ html {
 .cardcheck {
   @apply border-[3px] border-gray-500 text-gray-600 rounded-[10px] text-center px-8;
 }
+.card_dados {
+  @apply border-black border-[4px] rounded-[20px] bg-basicLight p-2 shadow-lg shadow-zinc-600 text-white;
+}
+.btn_options {
+  @apply border-[4px] rounded-[30px] text-center w-[150px] h-[50px] border-black font-bold;
+}

@@ -7,9 +7,6 @@ import Account from "./Account";
 import { useAuth } from "../hooks/useAuth";
 
 const Navbar = () => {
-  const { user } = useAuth();
-  console.log(user);
-
   return (
     <nav className="bg-black py-3">
       <div className="md:flex md:items-center md:justify-between">
