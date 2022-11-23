@@ -20,7 +20,6 @@ export default function EditUser() {
   const confirmPasswordInputRef = useRef<HTMLInputElement>(null);
   const nameInputRef = useRef<HTMLInputElement>(null);
   const phoneInputRef = useRef<HTMLInputElement>(null);
-  const cpfInputRef = useRef<HTMLInputElement>(null);
 
   async function updateUser() {
     console.log("teste");
@@ -29,15 +28,10 @@ export default function EditUser() {
       confirmPassword: confirmPasswordInputRef.current?.value,
       name: nameInputRef.current?.value,
       phone: phoneInputRef.current?.value,
-      cpf: cpfInputRef.current?.value,
     };
     console.log(userData);
     if (!userData.name) {
       nameInputRef.current?.focus();
-      return;
-    }
-    if (!userData.cpf) {
-      cpfInputRef.current?.focus();
       return;
     }
     if (!userData.phone) {
@@ -58,7 +52,7 @@ export default function EditUser() {
     }
     const { user, error } = await supabase.auth.update({
       password: userData.password,
-      data: { name: userData.name, phone: userData.phone, cpf: userData.cpf },
+      data: { name: userData.name, phone: userData.phone },
     });
     closeModal();
     toast.success("Dados Atualizados com Sucesso!");
@@ -107,14 +101,6 @@ export default function EditUser() {
                         className="btn_class"
                         placeholder="Novo nome de Usuário"
                         ref={nameInputRef}
-                      ></input>
-                    </div>
-                    <div>
-                      <h1>CPF</h1>
-                      <input
-                        className="btn_class"
-                        placeholder="Digite seu CPF"
-                        ref={cpfInputRef}
                       ></input>
                     </div>
                     <div>

@@ -13,10 +13,6 @@ export default function UserAdm() {
             <h1>{user?.user_metadata.name}</h1>
           </div>
           <div className="card_dados">
-            <h1>Cpf:</h1>
-            <h1>{user?.user_metadata.cpf}</h1>
-          </div>
-          <div className="card_dados">
             <h1>Email:</h1>
             <h1>{user?.email}</h1>
           </div>
