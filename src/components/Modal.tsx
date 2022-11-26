@@ -66,7 +66,7 @@ export default function MyModal() {
       toast.error("Insira um serviço");
       return;
     }
-    if (hours?.length == 0) {
+    if (!hours) {
       toast.error("Insira um horário");
       return;
     }
@@ -81,6 +81,8 @@ export default function MyModal() {
       agenda_user_phone: user?.user_metadata.phone,
     };
     const { data, error } = await supabase.from("agenda").insert([agendaData]);
+    console.log(error);
+
     toast.success("Agendado com Sucesso!");
     closeModal();
   }
