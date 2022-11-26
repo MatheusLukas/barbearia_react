@@ -16,8 +16,14 @@ export default function MyModal() {
   const services: string[] = [];
   const { user } = useAuth();
   const [isOpen, setIsOpen] = useState(false);
+  useEffect(() => {
+    localStorage.removeItem("currentHour");
+  }, []);
+
   function closeModal() {
     setIsOpen(false);
+    services.splice(0, services.length);
+    localStorage.removeItem("currentHour");
   }
 
   function openModal() {
@@ -49,8 +55,23 @@ export default function MyModal() {
   }
 
   async function insert() {
-    const getServices = await services.sort().toString();
+    const currentDate = new Date(Date.now());
+    console.log(currentDate);
     const hours = localStorage.getItem("currentHour");
+    if (value < currentDate) {
+      toast.error("Insira uma data válida");
+      return;
+    }
+    if (services.length == 0) {
+      toast.error("Insira um serviço");
+      return;
+    }
+    if (hours?.length == 0) {
+      toast.error("Insira um horário");
+      return;
+    }
+    const getServices = await services.sort().toString();
+
     const agendaData = {
       agenda_day: value,
       agenda_time: hours,
@@ -63,6 +84,7 @@ export default function MyModal() {
     toast.success("Agendado com Sucesso!");
     closeModal();
   }
+
   return (
     <div>
       <div className="flex items-center justify-center">
