@@ -32,7 +32,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="mx-4 my-6 md:my-0 hover:opacity-60 duration-500">
-            <a href="/#secao">Portfólio</a>
+              <Link href="/#secao">Portfólio</Link>
           </li>
           <li className="mx-4 my-6 md:my-0">
             <Link href="/agendamento" className="text-x1 ">
