@@ -56,7 +56,6 @@ export default function MyModal() {
 
   async function insert() {
     const currentDate = new Date(Date.now());
-    console.log(currentDate);
     const hours = localStorage.getItem("currentHour");
     if (value < currentDate) {
       toast.error("Insira uma data válida");
@@ -71,7 +70,6 @@ export default function MyModal() {
       return;
     }
     const getServices = await services.sort().toString();
-
     const agendaData = {
       agenda_day: value,
       agenda_time: hours,
@@ -80,19 +78,44 @@ export default function MyModal() {
       agenda_user_name: user?.user_metadata.name,
       agenda_user_phone: user?.user_metadata.phone,
     };
+    verifyAvailability(value, hours, agendaData)
+  }
+  async function upsert(agendaData:object) {
     const { data, error } = await supabase.from("agenda").insert([agendaData]);
     console.log(error);
-
-    toast.success("Agendado com Sucesso!");
-    closeModal();
+    
   }
+  async function verifyAvailability(date:Date, hours:string, agendaData:object) {
+    const year = date.toLocaleString("default", { year: "numeric" });
+    const month = date.toLocaleString("default", { month: "2-digit" });
+    const day = date.toLocaleString("default", { day: "2-digit" });
+    const formattedDate = year + "-" + month + "-" + day;
+    const { data, error } = await supabase
+    .from('agenda')
+    .select('*')
+    .eq('agenda_day', formattedDate)
+    .eq('agenda_time', hours)
+    if (data?.length == 0){
+      toast.success("Agendado com Sucesso!");
+      setTimeout(() => {
+      }, 2000);
+      upsert(agendaData)
+      closeModal();
+      return
+    }
+    toast.error("Horário indisponível")
+  }
+  function timeout(delay: number) {
+    return new Promise( res => setTimeout(res, delay) );
+}
+  
 
   return (
     <div>
       <div className="flex items-center justify-center">
         <button
           onClick={verifyUser}
-          className="border rounded-full p-2 w-[150px] hover:bg-white hover:scale-110 font-bold "
+          className="border rounded-full p-2 w-[150px] hover:bg-white hover:scale-110 font-bold"
         >
           Agende Aqui
         </button>
