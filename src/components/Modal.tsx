@@ -34,7 +34,7 @@ export default function MyModal() {
       openModal();
       return;
     }
-    toast.error("Por favor, Entre em uma conta antes de agendar!");
+    toast.error("Por favor, Acesse uma conta antes de agendar!");
   }
 
   function checkService(service: string, isChecked: boolean) {
